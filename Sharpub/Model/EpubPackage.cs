@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 
 namespace Sharpub.Model
 {
+    [XmlRoot("package", Namespace = "http://www.idpf.org/2007/opf")]
     public class EpubPackage
     {
         [XmlElement("metadata")]

@@ -22,6 +22,7 @@ namespace Sharpub.Example
             using var xmlWriter = new StringWriter();
             serializer.Serialize(xmlWriter, meta, namespaces);
             Console.WriteLine(xmlWriter.ToString());
+            Console.WriteLine(DateTime.Now.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"));
         }
     }
 }
