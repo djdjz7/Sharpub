@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34723.18
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sharpub", "Sharpub\Sharpub.csproj", "{C4CDC45C-2094-40FD-AD01-9D4476F77C94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sharpub.Example", "Sharpub.Example\Sharpub.Example.csproj", "{C319D771-6035-4934-85C2-499EA3262AB6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C4CDC45C-2094-40FD-AD01-9D4476F77C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4CDC45C-2094-40FD-AD01-9D4476F77C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4CDC45C-2094-40FD-AD01-9D4476F77C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4CDC45C-2094-40FD-AD01-9D4476F77C94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C319D771-6035-4934-85C2-499EA3262AB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C319D771-6035-4934-85C2-499EA3262AB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C319D771-6035-4934-85C2-499EA3262AB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C319D771-6035-4934-85C2-499EA3262AB6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4E447A3B-8ED5-4EA6-95D5-E42A533E9CE3}
+	EndGlobalSection
+EndGlobal
