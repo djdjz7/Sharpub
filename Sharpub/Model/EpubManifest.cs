@@ -8,7 +8,7 @@ namespace Sharpub.Model
     public class EpubManifest
     {
         [XmlElement("item")]
-        public List<ManifestItem> Items { get; set; }
+        public List<ManifestItem> Items { get; set; } = new List<ManifestItem>();
         [XmlAttribute("id")]
         public string Id { get; set; }
     }
@@ -34,7 +34,7 @@ namespace Sharpub.Model
             Href = href;
             MediaType = mediaType;
         }
-        [Obsolete("This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead.")]
+        [Obsolete("This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead.")]
         public ManifestItem()
         {
 

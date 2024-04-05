@@ -29,7 +29,7 @@ namespace Sharpub.Model
         /// meta
         /// </summary>
         [XmlElement(ElementName = "meta")]
-        public List<Meta> Metas { get; set; }
+        public List<Meta> Metas { get; set; } = new List<Meta>();
 
         /// <summary>
         /// link
@@ -39,7 +39,7 @@ namespace Sharpub.Model
 
         [XmlElement(ElementName = "contributor")]
         public List<Contributor> Contributors { get; set; }
-        
+
 
         [XmlElement(ElementName = "coverage")]
         public List<Coverage> Coverages { get; set; }
@@ -85,24 +85,40 @@ namespace Sharpub.Model
             Languages = languages;
         }
 
+        public EpubMetadata(string title, string language)
+        {
+            Title = new EpubTitle(title);
+            Languages = new List<EpubLanguage> { new EpubLanguage(language) };
+            Identifiers = new List<EpubIdentifier> { new EpubIdentifier() };
+        }
+
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public EpubMetadata() { }
     }
 
     public class EpubIdentifier : XMLElement
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EpubIdentifier"/> class, specifying the identifier.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="content"></param>
         public EpubIdentifier(string id, string content)
         {
             Id = id;
             Content = content;
         }
 
-        [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
-        )]
-        public EpubIdentifier() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="EpubIdentifier"/> class. Automatically generates an identifier.
+        /// </summary>
+        public EpubIdentifier()
+        {
+            Id = "bookID";
+            Content = $"urn:uuid:{Guid.NewGuid()}";
+        }
     }
 
     public class EpubTitle : XMLElement
@@ -113,7 +129,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public EpubTitle() { }
     }
@@ -126,7 +142,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public EpubLanguage() { }
     }
@@ -134,7 +150,7 @@ namespace Sharpub.Model
     public class Meta : XMLElementExt
     {
         [XmlAttribute(AttributeName = "property")]
-        public string Property { get; }
+        public string Property { get; set; }
 
         [XmlAttribute(AttributeName = "refines")]
         public string Refines { get; set; }
@@ -149,7 +165,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Meta() { }
     }
@@ -184,7 +200,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public MetadataLink() { }
     }
@@ -197,7 +213,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Contributor() { }
     }
@@ -210,7 +226,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Coverage() { }
     }
@@ -223,7 +239,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Creator() { }
     }
@@ -249,7 +265,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Date() { }
     }
@@ -262,7 +278,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Description() { }
     }
@@ -275,7 +291,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Format() { }
     }
@@ -288,7 +304,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Publisher() { }
     }
@@ -301,7 +317,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Relation() { }
     }
@@ -314,7 +330,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Rights() { }
     }
@@ -327,7 +343,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Source() { }
     }
@@ -340,7 +356,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Subject() { }
     }
@@ -353,7 +369,7 @@ namespace Sharpub.Model
         }
 
         [Obsolete(
-            "This parameterless constructor is preserved for XmlSerializer. Use the other constructor instead."
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
         )]
         public Type() { }
     }

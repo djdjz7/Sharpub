@@ -25,7 +25,8 @@ namespace Sharpub.Model.Section
             _imageData = data;
             _dataType = ImageDataType.ByteArray;
         }
-        public Task<string> ToXHTMLStringAsync(ZipArchive epubArchive)
+
+        public Task<string> ToXHTMLStringAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
         {
             throw new NotImplementedException();
         }

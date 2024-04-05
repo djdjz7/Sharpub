@@ -15,5 +15,9 @@ namespace Sharpub.Utils
             using (var stream = entry.Open())
                 await stream.WriteAsync(entryData, 0, entryData.Length);
         }
+        public static async Task AddEntryAsync(this ZipArchive zipArchive, string entryName, string entryData)
+        {
+            await AddEntryAsync(zipArchive, entryName, Encoding.UTF8.GetBytes(entryData));
+        }
     }
 }
