@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Sharpub.Model.Section;
+using Sharpub.Constants;
 
 namespace Sharpub.Model
 {
@@ -17,14 +18,20 @@ namespace Sharpub.Model
             Title = title;
             Sections = sections;
         }
-        public async Task<string> AddToEpub(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
+
+        public void AddSection(ISection section)
+        {
+            Sections.Add(section);
+        }
+        public async Task<string> GenerateContentAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
         {
             var builder = new StringBuilder();
             foreach (var section in Sections)
             {
                 builder.AppendLine(await section.ToXHTMLStringAsync(epubArchive, epubManifest, epubSpine));
             }
-            return builder.ToString();
+            var content = builder.ToString();
+            return string.Format(Constants.Constants.ChapterTemplate, Title, content);
         }
     }
 }
