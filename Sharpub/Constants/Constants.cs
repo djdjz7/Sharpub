@@ -13,7 +13,7 @@ namespace Sharpub.Constants
 <head>
   <meta charset=""UTF-8"" />
   <title>{0}</title>
-  <link rel=""stylesheet"" type=""text/css"" href=""style.css"" />
+  <link rel=""stylesheet"" type=""text/css"" href=""../Styles/style.css"" />
 </head>
 <body>
 <h1>{0}</h1>

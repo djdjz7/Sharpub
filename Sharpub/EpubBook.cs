@@ -55,11 +55,11 @@ namespace Sharpub
                             manifest,
                             spine
                         );
-                        await zipArchive.AddEntryAsync($"OEBPS/chapter_{i}.xhtml", chapterFile);
+                        await zipArchive.AddEntryAsync($"OEBPS/Text/chapter_{i}.xhtml", chapterFile);
                         manifest.Items.Add(
                             new ManifestItem(
                                 $"chapter_{i}",
-                                $"chapter_{i}.xhtml",
+                                $"Text/chapter_{i}.xhtml",
                                 "application/xhtml+xml"
                             )
                         );
