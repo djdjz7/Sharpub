@@ -6,6 +6,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace Sharpub
@@ -21,7 +22,6 @@ namespace Sharpub
             Metadata = metadata;
         }
 
-
         public async Task ExportAsync(string epubFilePath)
         {
             if (Chapters.Count == 0)
@@ -30,8 +30,9 @@ namespace Sharpub
             {
                 using (var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Create))
                 {
+                    await zipArchive.AddEntryAsync("mimetype", "application/epub+zip", CompressionLevel.NoCompression);
+                    await zipArchive.AddEntryAsync("META-INF/container.xml", Constants.Constants.ContainerContent);
 
-                    await zipArchive.AddEntryAsync("mimetype", "application/epub+zip");
                     // TODO: Generate TOC
 
                     // Copy the metas so we can recover them later to remove the modified date
@@ -49,7 +50,11 @@ namespace Sharpub
                     for (int i = 0; i < Chapters.Count; i++)
                     {
                         var Chapter = Chapters[i];
-                        var chapterFile = await Chapter.GenerateContentAsync(zipArchive, manifest, spine);
+                        var chapterFile = await Chapter.GenerateContentAsync(
+                            zipArchive,
+                            manifest,
+                            spine
+                        );
                         await zipArchive.AddEntryAsync($"OEBPS/chapter_{i}.xhtml", chapterFile);
                         manifest.Items.Add(
                             new ManifestItem(
@@ -69,13 +74,20 @@ namespace Sharpub
 
                     var namespaces = new XmlSerializerNamespaces();
                     namespaces.Add("dc", "http://purl.org/dc/elements/1.1/");
-
-                    using (var textWriter = new StringWriter())
+                    using (var stream = new MemoryStream())
                     {
-                        _packageSerializer.Serialize(textWriter, package, namespaces);
-                        var packageXml = textWriter.ToString();
+                        using (
+                            var textWriter = XmlWriter.Create(
+                                stream,
+                                new XmlWriterSettings { Encoding = System.Text.Encoding.UTF8 }
+                            )
+                        )
+                        {
+                            _packageSerializer.Serialize(textWriter, package, namespaces);
+                            var packageXml = stream.ToArray();
 
-                        await zipArchive.AddEntryAsync("OEBPS/package.opf", packageXml);
+                            await zipArchive.AddEntryAsync("OEBPS/package.opf", packageXml);
+                        }
                     }
 
                     Metadata.Metas = originalMetas;
