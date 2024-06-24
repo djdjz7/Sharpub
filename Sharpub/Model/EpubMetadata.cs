@@ -43,7 +43,7 @@ namespace Sharpub.Model
         [XmlElement(ElementName = "coverage")]
         public List<Coverage> Coverages { get; set; }
 
-        [XmlElement(ElementName = "creator")]
+        [XmlElement(ElementName = "creator", Namespace = "http://purl.org/dc/elements/1.1/")]
         public List<Creator> Creators { get; set; }
 
         [XmlElement(ElementName = "date")]
