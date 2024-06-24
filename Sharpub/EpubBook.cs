@@ -1,6 +1,4 @@
-﻿using Sharpub.Model;
-using Sharpub.Utils;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
@@ -8,6 +6,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
+using Sharpub.Model;
+using Sharpub.Utils;
 
 namespace Sharpub
 {
@@ -30,8 +30,15 @@ namespace Sharpub
             {
                 using (var zipArchive = new ZipArchive(fileStream, ZipArchiveMode.Create))
                 {
-                    await zipArchive.AddEntryAsync("mimetype", "application/epub+zip", CompressionLevel.NoCompression);
-                    await zipArchive.AddEntryAsync("META-INF/container.xml", Constants.Constants.ContainerContent);
+                    await zipArchive.AddEntryAsync(
+                        "mimetype",
+                        "application/epub+zip",
+                        CompressionLevel.NoCompression
+                    );
+                    await zipArchive.AddEntryAsync(
+                        "META-INF/container.xml",
+                        Constants.Constants.ContainerContent
+                    );
 
                     // TODO: Generate TOC
 
@@ -55,7 +62,10 @@ namespace Sharpub
                             manifest,
                             spine
                         );
-                        await zipArchive.AddEntryAsync($"OEBPS/Text/chapter_{i}.xhtml", chapterFile);
+                        await zipArchive.AddEntryAsync(
+                            $"OEBPS/Text/chapter_{i}.xhtml",
+                            chapterFile
+                        );
                         manifest.Items.Add(
                             new ManifestItem(
                                 $"chapter_{i}",

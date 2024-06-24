@@ -53,7 +53,7 @@ namespace Sharpub.Model.Section
             EpubSpine epubSpine
         )
         {
-                return ToString(1);
+            return ToString(1);
         }
     }
 }

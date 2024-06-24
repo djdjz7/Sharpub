@@ -40,7 +40,6 @@ namespace Sharpub.Model
         [XmlElement(ElementName = "contributor")]
         public List<Contributor> Contributors { get; set; }
 
-
         [XmlElement(ElementName = "coverage")]
         public List<Coverage> Coverages { get; set; }
 

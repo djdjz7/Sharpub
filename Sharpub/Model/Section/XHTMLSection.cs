@@ -8,7 +8,11 @@ namespace Sharpub.Model.Section
 {
     public class XHTMLSection : ISection
     {
-        public Task<string> ToXHTMLStringAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
+        public Task<string> ToXHTMLStringAsync(
+            ZipArchive epubArchive,
+            EpubManifest epubManifest,
+            EpubSpine epubSpine
+        )
         {
             throw new NotImplementedException();
         }

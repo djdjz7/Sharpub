@@ -10,7 +10,12 @@ namespace Sharpub.Model.Section
     public class TextSection : ISection
     {
         public string Content { get; set; }
-        public Task<string> ToXHTMLStringAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
+
+        public Task<string> ToXHTMLStringAsync(
+            ZipArchive epubArchive,
+            EpubManifest epubManifest,
+            EpubSpine epubSpine
+        )
         {
             return Task.FromResult(HttpUtility.HtmlEncode(Content));
         }

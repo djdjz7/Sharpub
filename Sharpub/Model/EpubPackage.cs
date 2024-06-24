@@ -10,12 +10,16 @@ namespace Sharpub.Model
     {
         [XmlAttribute("dir")]
         public XMLDir Direction { get; set; }
+
         [XmlAttribute("version")]
         public string Version { get; set; } = "3.0";
+
         [XmlAttribute("id")]
         public string Id { get; set; }
+
         [XmlAttribute("prefix")]
         public string Prefix { get; set; }
+
         [XmlAttribute("unique-identifier")]
         public string UniqueIdentifier
         {
@@ -32,13 +36,16 @@ namespace Sharpub.Model
                 Metadata.Identifiers[0].Id = value;
             }
         }
+
         [XmlAttribute("xml:lang")]
         public string Language { get; set; }
 
         [XmlElement("metadata")]
         public EpubMetadata Metadata { get; set; }
+
         [XmlElement("manifest")]
         public EpubManifest Manifest { get; set; }
+
         [XmlElement("spine")]
         public EpubSpine Spine { get; set; }
     }

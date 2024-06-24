@@ -5,6 +5,10 @@ namespace Sharpub.Model.Section
 {
     public interface ISection
     {
-        Task<string> ToXHTMLStringAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine);
+        Task<string> ToXHTMLStringAsync(
+            ZipArchive epubArchive,
+            EpubManifest epubManifest,
+            EpubSpine epubSpine
+        );
     }
 }

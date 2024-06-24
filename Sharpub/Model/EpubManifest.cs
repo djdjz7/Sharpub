@@ -9,6 +9,7 @@ namespace Sharpub.Model
     {
         [XmlElement("item")]
         public List<ManifestItem> Items { get; set; } = new List<ManifestItem>();
+
         [XmlAttribute("id")]
         public string Id { get; set; }
     }
@@ -17,14 +18,19 @@ namespace Sharpub.Model
     {
         [XmlAttribute("id")]
         public string Id { get; set; }
+
         [XmlAttribute("href")]
         public string Href { get; set; }
+
         [XmlAttribute("media-type")]
         public string MediaType { get; set; }
+
         [XmlAttribute("fallback")]
         public string Fallback { get; set; }
+
         [XmlAttribute("media-overlay")]
         public string MediaOverlay { get; set; }
+
         [XmlAttribute("properties")]
         public string Properties { get; set; }
 
@@ -34,10 +40,10 @@ namespace Sharpub.Model
             Href = href;
             MediaType = mediaType;
         }
-        [Obsolete("This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead.")]
-        public ManifestItem()
-        {
 
-        }
+        [Obsolete(
+            "This parameterless constructor is reserved for XmlSerializer. Use the other constructor instead."
+        )]
+        public ManifestItem() { }
     }
 }

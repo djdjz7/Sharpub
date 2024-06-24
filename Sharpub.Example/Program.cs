@@ -1,8 +1,8 @@
-﻿using Sharpub.Model;
-using Sharpub.Model.Section;
-using System.Web;
+﻿using System.Web;
 using System.Xml;
 using System.Xml.Serialization;
+using Sharpub.Model;
+using Sharpub.Model.Section;
 
 namespace Sharpub.Example
 {
@@ -12,7 +12,8 @@ namespace Sharpub.Example
         {
             var meta = new EpubMetadata("My ePub book", "en-US");
             var book = new EpubBook(meta);
-            var chapterContent = @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi morbi tempus iaculis urna id. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam. Ut lectus arcu bibendum at varius vel. Egestas sed tempus urna et pharetra. In nisl nisi scelerisque eu ultrices vitae auctor. Eget mauris pharetra et ultrices neque ornare aenean. Rhoncus est pellentesque elit ullamcorper. Aliquam faucibus purus in massa tempor nec feugiat. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Urna id volutpat lacus laoreet non curabitur gravida arcu. Consequat nisl vel pretium lectus quam id leo. Cras ornare arcu dui vivamus arcu felis bibendum ut. Sit amet justo donec enim diam vulputate ut pharetra sit.
+            var chapterContent =
+                @"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nulla facilisi morbi tempus iaculis urna id. Fusce id velit ut tortor pretium viverra suspendisse potenti nullam. Ut lectus arcu bibendum at varius vel. Egestas sed tempus urna et pharetra. In nisl nisi scelerisque eu ultrices vitae auctor. Eget mauris pharetra et ultrices neque ornare aenean. Rhoncus est pellentesque elit ullamcorper. Aliquam faucibus purus in massa tempor nec feugiat. Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Urna id volutpat lacus laoreet non curabitur gravida arcu. Consequat nisl vel pretium lectus quam id leo. Cras ornare arcu dui vivamus arcu felis bibendum ut. Sit amet justo donec enim diam vulputate ut pharetra sit.
 
 Purus sit amet luctus venenatis lectus magna. Eleifend quam adipiscing vitae proin sagittis nisl rhoncus mattis. Amet nisl suscipit adipiscing bibendum est. Tellus at urna condimentum mattis pellentesque id. Vel risus commodo viverra maecenas accumsan lacus vel facilisis. Sit amet mattis vulputate enim. Tristique senectus et netus et malesuada fames. Sagittis eu volutpat odio facilisis mauris. Netus et malesuada fames ac turpis egestas integer. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Morbi enim nunc faucibus a pellentesque sit. Quisque egestas diam in arcu cursus euismod quis viverra. Vel fringilla est ullamcorper eget nulla facilisi etiam dignissim. Venenatis a condimentum vitae sapien. Sit amet mattis vulputate enim nulla aliquet. Enim ut tellus elementum sagittis vitae et leo duis. Facilisis gravida neque convallis a cras semper auctor. Ultrices neque ornare aenean euismod elementum nisi quis eleifend.
 

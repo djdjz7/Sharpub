@@ -13,20 +13,27 @@ namespace Sharpub.Model.Section
             URL,
             ByteArray,
         }
+
         private object _imageData;
         private ImageDataType _dataType;
+
         public ImageSection(string imageUrl)
         {
             _imageData = imageUrl;
             _dataType = ImageDataType.URL;
         }
+
         public ImageSection(byte[] data)
         {
             _imageData = data;
             _dataType = ImageDataType.ByteArray;
         }
 
-        public Task<string> ToXHTMLStringAsync(ZipArchive epubArchive, EpubManifest epubManifest, EpubSpine epubSpine)
+        public Task<string> ToXHTMLStringAsync(
+            ZipArchive epubArchive,
+            EpubManifest epubManifest,
+            EpubSpine epubSpine
+        )
         {
             throw new NotImplementedException();
         }
