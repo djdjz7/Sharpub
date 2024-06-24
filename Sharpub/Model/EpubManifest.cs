@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Xml.Serialization;
 
 namespace Sharpub.Model
@@ -33,6 +32,7 @@ namespace Sharpub.Model
 
         [XmlAttribute("properties")]
         public string Properties { get; set; }
+
 
         public ManifestItem(string id, string href, string mediaType)
         {

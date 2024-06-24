@@ -56,4 +56,13 @@ namespace Sharpub.Model
         [XmlAttribute("xml:lang")]
         public string Lang { get; set; }
     }
+
+    public class Anchor : XMLElement
+    {
+        [XmlAttribute("href")]
+        public string Href { get; set; }
+    }
+
+    public class Heading : XMLElement { };
+
 }

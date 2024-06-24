@@ -1,11 +1,8 @@
-﻿using System;
+﻿using Sharpub.Model.Section;
 using System.Collections.Generic;
 using System.IO.Compression;
 using System.Text;
 using System.Threading.Tasks;
-using System.Xml;
-using Sharpub.Constants;
-using Sharpub.Model.Section;
 
 namespace Sharpub.Model
 {
