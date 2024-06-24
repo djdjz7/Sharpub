@@ -78,19 +78,19 @@ namespace Sharpub
                             spine
                         );
                         await zipArchive.AddEntryAsync(
-                            $"OEBPS/Text/chapter_{i}.xhtml",
+                            $"OEBPS/chapter_{i}.xhtml",
                             chapterFile
                         );
                         manifest.Items.Add(
                             new ManifestItem(
                                 $"chapter_{i}",
-                                $"Text/chapter_{i}.xhtml",
+                                $"chapter_{i}.xhtml",
                                 "application/xhtml+xml"
                             )
                         );
                         spine.ItemRefs.Add(new SpineItemRef($"chapter_{i}"));
                         toc.OrderedList.ListItems.Add(
-                            new ListItem(chapter.Title, $"Text/chapter_{i}.xhtml")
+                            new ListItem(chapter.Title, $"chapter_{i}.xhtml")
                         );
                     }
                     var package = new EpubPackage
